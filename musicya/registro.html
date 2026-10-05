@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MusicYa - Registro</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+body{background:#181818;color:white;font-family:Arial,sans-serif}
+.navbar,footer{background:#111}
+.navbar a{color:white}
+.navbar a:hover{color:#d946ef}
+.navbar a.active{color:#d946ef;font-weight:bold}
+
+.section-title{
+    color:#d946ef;
+    font-weight:bold;
+    margin-bottom:20px
+}
+
+.form-container{
+    background:#252525;
+    border-radius:15px;
+    padding:35px;
+    box-shadow:0 10px 30px #0008;
+    margin-top:40px;
+    margin-bottom:50px;
+}
+
+.form-label{color:#eee;font-weight:600}
+.form-control, .form-select, .input-group-text{
+    background-color:#181818;
+    border:1px solid #444;
+    color:#fff;
+}
+.form-control:focus, .form-select:focus{
+    background-color:#202020;
+    color:#fff;
+    border-color:#d946ef;
+    box-shadow:0 0 0 0.25rem rgba(217, 70, 239, 0.25);
+}
+.form-control::placeholder{color:#888}
+.input-group-text{background-color:#333;color:#d946ef;border-color:#444;font-weight:bold}
+.form-text{color:#aaa}
+.form-check-input:checked{background-color:#d946ef;border-color:#d946ef}
+.form-check-label{color:#ddd}
+.form-range::-webkit-slider-thumb{background:#d946ef}
+.form-range::-moz-range-thumb{background:#d946ef}
+
+.btn-primary-custom{
+    background-color:#d946ef;
+    border-color:#d946ef;
+    color:white;
+    font-weight:bold;
+}
+.btn-primary-custom:hover{
+    background-color:#c026d3;
+    border-color:#c026d3;
+    color:white;
+}
+
+.search-box{display:flex;gap:8px}
+.search-box input{
+    background:#252525;
+    border:1px solid #444;
+    color:white;
+    border-radius:20px;
+    padding:8px 14px;
+    width:190px
+}
+.search-box button{
+    border:0;
+    background:#d946ef;
+    color:white;
+    border-radius:20px;
+    padding:8px 14px
+}
+
+.menu-toggle{
+    display:none;
+    border:0;
+    background:none;
+    color:white;
+    font-size:28px
+}
+
+footer{padding:30px;text-align:center;margin-top:50px}
+
+@media(max-width:768px){
+    .menu-toggle{display:block}
+    .nav-menu{
+        display:none!important;
+        flex-direction:column;
+        width:100%;
+        padding-top:15px
+    }
+    .nav-menu.show{display:flex!important}
+    .search-box{width:100%}
+    .search-box input{width:100%}
+}
+</style>
+</head>
+
+<body>
+
+<!-- MENÚ -->
+<nav class="navbar navbar-dark sticky-top shadow">
+<div class="container">
+<div class="d-flex justify-content-between align-items-center w-100">
+
+<a class="navbar-brand fw-bold fs-4" href="index.html">
+🎵 MusicYa
+</a>
+
+<button class="menu-toggle" onclick="toggleMenu()">☰</button>
+
+<div id="navMenu" class="d-flex gap-3 align-items-center nav-menu">
+<a class="text-decoration-none" href="index.html">Inicio</a>
+<a class="text-decoration-none" href="index.html#generos">Géneros</a>
+<a class="text-decoration-none" href="index.html">🛒 Tienda</a>
+<a class="text-decoration-none" href="index.html#musica">Música</a>
+<a class="text-decoration-none" href="index.html#nosotros">Nosotros</a>
+<a class="text-decoration-none btn btn-outline-light btn-sm px-3 " href="contacto.html">Contacto</a>
+<a class="text-decoration-none btn btn-primary-custom btn-sm px-3 active" href="registro.html">Registro</a>
+
+<div class="search-box">
+<input id="searchInput" type="text" placeholder="Buscar...">
+<button onclick="window.location.href='index.html'">🔍</button>
+</div>
+
+</div>
+</div>
+</div>
+</nav>
+
+<!-- FORMULARIO CONTENEDOR -->
+<main class="container py-4">
+<div class="row justify-content-center">
+<div class="col-12 col-lg-10">
+<div class="form-container">
+    <h1 class="text-center section-title mb-2">Formulario de Registro</h1>
+    <p class="text-center text-secondary mb-4">Completa la información requerida a continuación.</p>
+
+    <form action="#" method="POST" enctype="multipart/form-data">
+        
+        <!-- 1. DATOS PERSONALES / IDENTIFICACIÓN -->
+        <h4 class="text-light mb-3 border-bottom border-secondary pb-2">1. Datos Personales / Identificación</h4>
+        <div class="row g-3 mb-4">
+            <!-- Nombre completo y Apellidos: col-md-6 cada uno -->
+            <div class="col-12 col-md-6">
+                <label for="nombre" class="form-label">Nombre completo</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingresa tu nombre" required>
+            </div>
+            <div class="col-12 col-md-6">
+                <label for="apellidos" class="form-label">Apellidos</label>
+                <input type="text" class="form-control" id="apellidos" name="apellidos" placeholder="Ingresa tus apellidos" required>
+            </div>
+            
+            <!-- RUT / Identificación -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <label for="rut" class="form-label">RUT / Identificación</label>
+                <input type="text" class="form-control" id="rut" name="rut" placeholder="Ej: 12.345.678-K" required>
+            </div>
+            
+            <!-- Correo Electrónico -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <label for="email" class="form-label">Correo Electrónico</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="correo@ejemplo.com" required>
+                <div id="emailHelp" class="form-text">Tu correo no será compartido con nadie más.</div>
+            </div>
+            
+            <!-- Teléfono de Contacto -->
+            <div class="col-12 col-md-12 col-lg-4">
+                <label for="telefono" class="form-label">Teléfono de Contacto</label>
+                <div class="input-group">
+                    <span class="input-group-text">+56 9</span>
+                    <input type="tel" class="form-control" id="telefono" name="telefono" placeholder="1234 5678" required>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. INFORMACIÓN DE PERFIL Y PREFERENCIAS -->
+        <h4 class="text-light mb-3 border-bottom border-secondary pb-2">2. Información de Perfil y Preferencias</h4>
+        <div class="row g-3 mb-4">
+            <!-- Región / Ciudad de Residencia -->
+            <div class="col-12 col-md-6 col-lg-3">
+                <label for="region" class="form-label">Región / Ciudad</label>
+                <select class="form-select" id="region" name="region" required>
+                    <option value="" disabled selected>Selecciona una región...</option>
+                    <option value="rm">Región Metropolitana</option>
+                    <option value="valparaiso">Valparaíso</option>
+                    <option value="biobio">Biobío</option>
+                    <option value="losrios">Los Ríos</option>
+                </select>
+            </div>
+            
+            <!-- Fecha de Nacimiento o Atención -->
+            <div class="col-12 col-md-6 col-lg-3">
+                <label for="fecha" class="form-label">Fecha de Nacimiento / Atención</label>
+                <input type="date" class="form-control" id="fecha" name="fecha" required>
+            </div>
+            
+            <!-- Tipo de Consulta / Rol -->
+            <div class="col-12 col-md-6 col-lg-3">
+                <label class="form-label d-block">Tipo de Consulta / Rol</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="tipoConsulta" id="rol1" value="general" checked>
+                    <label class="form-check-label" for="rol1">Consulta General</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="tipoConsulta" id="rol2" value="artista">
+                    <label class="form-check-label" for="rol2">Artista / Músico</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="tipoConsulta" id="rol3" value="ventas">
+                    <label class="form-check-label" for="rol3">Ventas / Tienda</label>
+                </div>
+            </div>
+            
+            <!-- Nivel de Interés / Prioridad -->
+            <div class="col-12 col-md-6 col-lg-3">
+                <label for="prioridad" class="form-label">Nivel de Interés / Prioridad</label>
+                <input type="range" class="form-range" min="1" max="5" id="prioridad" name="prioridad" value="3">
+                <div class="d-flex justify-content-between text-secondary small">
+                    <span>1 (Bajo)</span>
+                    <span>3 (Medio)</span>
+                    <span>5 (Alto)</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. CARGA DE ARCHIVOS Y MENSAJE EXTENSO -->
+        <h4 class="text-light mb-3 border-bottom border-secondary pb-2">3. Carga de Archivos y Mensaje Extenso</h4>
+        <div class="row g-3 mb-4">
+            <!-- Adjuntar Documento o Fotografía -->
+            <div class="col-12 col-md-6">
+                <label for="archivo" class="form-label">Adjuntar Documento o Fotografía</label>
+                <input class="form-control" type="file" id="archivo" name="archivo" accept=".pdf,.jpg,.jpeg,.png">
+                <div class="form-text">Formatos permitidos: PDF, JPG o PNG.</div>
+            </div>
+            
+            <!-- Detalle o Comentarios Adicionales -->
+            <div class="col-12 col-md-6">
+                <label for="comentarios" class="form-label">Detalle o Comentarios Adicionales</label>
+                <textarea class="form-control" id="comentarios" name="comentarios" rows="4" placeholder="Escribe tus comentarios o consulta aquí..."></textarea>
+            </div>
+        </div>
+
+        <!-- 4. CONSENTIMIENTO Y ACCIONES -->
+        <h4 class="text-light mb-3 border-bottom border-secondary pb-2">4. Consentimiento y Acciones</h4>
+        <div class="row g-3 mb-4">
+            <!-- Términos y Condiciones -->
+            <div class="col-12 col-md-6">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="terminos" required>
+                    <label class="form-check-label" for="terminos">
+                        Acepto los <a href="#" class="text-decoration-underline" style="color:#d946ef">Términos y Condiciones</a>
+                    </label>
+                </div>
+            </div>
+            
+            <!-- Suscripción al Boletín -->
+            <div class="col-12 col-md-6">
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="boletin" checked>
+                    <label class="form-check-label" for="boletin">Suscripción al Boletín de novedades</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- BOTONERA DE CONTROL -->
+        <div class="d-flex justify-content-end gap-2 pt-3 border-top border-secondary">
+            <button type="reset" class="btn btn-outline-secondary">Limpiar</button>
+            <button type="submit" class="btn btn-primary-custom">Enviar</button>
+        </div>
+
+    </form>
+</div>
+</div>
+</div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+<p>© 2026 MusicYa</p>
+<p>🎵 La música nos conecta</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+function toggleMenu(){
+    document.getElementById("navMenu").classList.toggle("show");
+}
+</script>
+</body>
+</html>
